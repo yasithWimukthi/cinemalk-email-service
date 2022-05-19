@@ -9,6 +9,6 @@ const app = new express();
 app.use(cors())
 app.use(express.json());
 
-app.use('/api/v1/',routes);
+app.use('/api',routes);
 
 app.listen(port, () => { console.log(`server started - listening on port ${port}`)})
