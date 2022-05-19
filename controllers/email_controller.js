@@ -1,8 +1,6 @@
 import nodemailer from 'nodemailer'
 
 
-
-
 let transport = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -11,11 +9,11 @@ let transport = nodemailer.createTransport({
     }
 });
 
-
-
-
+/**
+ * @description: This function is used to send email to the user
+ * @returns {object}
+ */
 const createEmail = async (req, res) => {
-
 
     let message = {
         from: process.env.MAIL_USERNAME,
@@ -25,8 +23,6 @@ const createEmail = async (req, res) => {
         '<br/><p><b>'+req.body.description+'</b></p>',
 
     };
-
-
 
     transport.sendMail(message, (error, info) => {
         if (error) {
@@ -40,7 +36,6 @@ const createEmail = async (req, res) => {
     });
 
 };
-
 
 
 export default createEmail;
